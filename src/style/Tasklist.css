@@ -1,0 +1,10 @@
+.Tasklist{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.tasklist-title{
+    color:rgb(80, 80, 80);
+}

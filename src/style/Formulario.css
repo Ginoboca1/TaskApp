@@ -1,0 +1,28 @@
+.form-contain{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 5px;
+}
+
+.task-input{
+    background-color: var(--backgroundblue);
+    width: 60%;
+    height: 30px;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.button-task{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color:rgb(80, 80, 80);
+}
+
+
+.input-icon{
+    width: 30px;
+    height: 30px;
+}

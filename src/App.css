@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2? family=Outfit:wght@100&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62,5%;
+}
+
+:root{
+  --backgroundblue:#C5E3FC;
+  --blue: #ABD1FF;
+  --green:#ABD14C;
+  --yellow: #FFDF6B;
+  --red: #FF6155;
+}
+
+html,
+body{
+  background-color: var(--backgroundblue);
+  font-family: 'Outfit', sans-serif;
+}
+
+.App{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+}
+
+.img-contenedor{
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gnoboc-img{
+  width: 12rem ;
+  border-radius: 50%;
+}
+
+.contenedor-tasks{
+  background-color: white;
+  width:600px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5%;
+}
