@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style/Tasklist.css';
 import Formulario from './Formulario';
 import Task from './Task';
@@ -30,6 +30,17 @@ function Tasklist(){
     })
     setTareas(tareasActualizadas);
   }
+
+  useEffect(() =>{
+    let data = localStorage.getItem('tasks')
+    if(data){
+      setTareas(JSON.parse(data))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tareas))
+  }, [tareas])
 
     return (
         <div>

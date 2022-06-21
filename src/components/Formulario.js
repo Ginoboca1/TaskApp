@@ -4,13 +4,9 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import { v4 as uuidv4 } from 'uuid';
 
 
-function Formulario(props){
+function Formulario({onSubmit}){
 
     const [input, setInput] = useState('')
-
-    const handleChange = (e) =>{
-        setInput(e.target.value)
-    }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
@@ -20,22 +16,21 @@ function Formulario(props){
             texto : input,
             completada: false
         }
+        onSubmit(nuevaTarea)
+        setInput('')
 
-        props.onSubmit(nuevaTarea)
     }
 
     
-
     return (
-        <form
-        onSubmit={handleSubmit}
-         className='form-contain'>
+        <form onSubmit={handleSubmit} className='form-contain'>
             <input
             className='task-input'
             type='text'
             placeholder='Agregar tarea'
             name='texto'
-            onChange={handleChange}
+            onChange={(e) => setInput(e.target.value)}
+            value = {input}
             />
 
             <button className='button-task'>
