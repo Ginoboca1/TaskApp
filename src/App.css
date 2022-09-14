@@ -7,7 +7,6 @@
 }
 
 :root{
-  --backgroundblue:#C5E3FC;
   --blue: #ABD1FF;
   --green:#ABD14C;
   --yellow: #FFDF6B;
@@ -16,35 +15,29 @@
 
 html,
 body{
-  background-color: var(--backgroundblue);
+  background-color:#000;
   font-family: 'Outfit', sans-serif;
+  color:white;
 }
+
+
 
 .App{
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  align-items: center;
-}
-
-.img-contenedor{
-  width: 100%;
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gnoboc-img{
-  width: 12rem ;
-  border-radius: 50%;
-}
-
-.contenedor-tasks{
-  background-color: white;
-  width:600px;
-  min-height: 400px;
-  margin: 0 auto;
+  background-color:#373737;
+  margin: 5% auto;
+  max-width:600px;
+  min-height: 500px;
   padding: 20px;
   border-radius: 5%;
+ width:100%;
+ display: flex;
+ flex-wrap: wrap;
+ text-align: center;
+ justify-content:center;
 }
+
+
+
+
+
+

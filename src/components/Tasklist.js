@@ -1,67 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import '../style/Tasklist.css';
-import Formulario from './Formulario';
-import Task from './Task';
+import "../style/Tasklist.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteTask } from "../features/tasks";
+import { useDispatch } from "react-redux";
 
 
-function Tasklist(){
+function Tasklist() {
+  const tasks = useSelector((state) => state.tasks);
+  const dispatch = useDispatch();
 
-  const [tareas,setTareas] = useState([])
+  const handleDelete = (id) => {
+    dispatch(deleteTask(id));
+  };
 
-  const agregarTarea = tarea =>{
-    if(tarea.texto.trim()){
-      tarea.texto = tarea.texto.trim()
-      const tareasActualizadas = [tarea,...tareas]
-      setTareas(tareasActualizadas);
-    }
-  }
 
-  const eliminarTarea = id =>{
-    const tareasActualizadas = tareas.filter((tarea) => tarea.id !== id);
-    setTareas(tareasActualizadas);
-  }
 
-  const completarTarea = id =>{
-    const tareasActualizadas = tareas.map(tarea =>{
-      if(tarea.id ===id){
-        tarea.completada = !tarea.completada;
-      }
-      return tarea;
-    })
-    setTareas(tareasActualizadas);
-  }
+  return (
+    <div className = 'container'>
+      <h1 className="tasklist-title">Tareas ({tasks.length})</h1>
+      <div className="tasklist-contain">
+        {tasks.map((task) => (
+          <div className = 'task' key={task.id}>
+            <div className="task-text">
+              <h3>{task.title}</h3>
+              <p>{task.description}</p>
+            </div>
 
-  useEffect(() =>{
-    let data = localStorage.getItem('tasks')
-    if(data){
-      setTareas(JSON.parse(data))
-    }
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tareas))
-  }, [tareas])
-
-    return (
-        <div>
-          <h1 className = "tasklist-title">Tareas</h1>
-          <Formulario onSubmit = {agregarTarea}/>
-          
-          <div className='tasklist-contain'>
-              {
-                tareas.map((tarea) =>
-                  <Task
-                  key={tarea.id}
-                  id = {tarea.id} 
-                  texto = {tarea.texto}
-                  completada = {tarea.completada}
-                  completarTarea = {completarTarea}
-                  eliminarTarea = {eliminarTarea} />
-                )
-              }
+            <button onClick={() => handleDelete(task.id)}>delete</button>
           </div>
-        </div>
-    )
+        ))}
+      </div>
+
+      <Link to='/TaskApp/create'>
+        <button className="button-tasklist">Añadir Tarea</button>
+      </Link>
+    </div>
+  );
 }
 
 export default Tasklist;
