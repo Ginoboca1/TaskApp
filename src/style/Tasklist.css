@@ -25,24 +25,31 @@
     padding:8px;
 }
 
-.task button{
+.deleteButton{
     background-color:#fe2e2e;
     border:none;
     cursor:pointer;
-    width:10%;
     border-radius:5%;
+    padding:6px;
 }
 
-.task button:hover {
+.deleteButton:hover {
     background-color:#D10A0A;
 }
 
-.task button:active{
+.deleteButton:active{
     background-color:#930404;
     color:white;
 }
 
-
+.editButton{
+    background-color:grey;
+    border:none;
+    cursor:pointer;
+    width:10%;
+    border-radius:5%;
+    padding:6px;
+}
 
 
 .button-tasklist{

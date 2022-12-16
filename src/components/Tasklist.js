@@ -26,7 +26,10 @@ function Tasklist() {
               <p>{task.description}</p>
             </div>
 
-            <button onClick={() => handleDelete(task.id)}>delete</button>
+            <button className="deleteButton" onClick={() => handleDelete(task.id)}>delete</button>
+            <button className="editButton">
+              <Link to={`/TaskApp/${task.id}`}>Edit</Link>
+            </button>
           </div>
         ))}
       </div>
